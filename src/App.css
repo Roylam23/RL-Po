@@ -1,0 +1,119 @@
+:root {
+  --white: #fff;
+  --red: #F85858;
+  --org: #F59B47;
+  --padding-top: 35px;
+  --intro-fs: calc(20px + 2.5vw);
+}
+
+.nav {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px 0;
+}
+
+.btn-con{
+  position:relative;
+  height:36px;
+}
+
+.root {
+  width: 100%;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.intro {
+  width: 100%;
+  display: flex;
+  padding-top: var(--padding-top);
+  flex-shrink: 0;
+}
+
+.intro-fs {
+  font-size: 70px;
+}
+
+.bg-gray {
+  background: #262626;
+}
+
+.line-num {
+  color: #4e4e4e;
+}
+
+.line-con {
+  color: var(--red);
+  padding-right: 20px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+.line-num {
+  padding-top: var(--padding-top);
+}
+
+.main-con {
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  z-index: 200;
+  font-size: var(--intro-fs);
+  padding-bottom: 80px;
+  overflow: auto;
+}
+
+.num-con {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.intro-con {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin-left: calc(20px + 2vw);
+  justify-content: space-around;
+}
+
+.option,
+.option-c {
+  position: absolute;
+  right: 0;
+}
+
+.option-c {
+  display: none;
+  opacity: 0.5;
+  cursor: pointer
+}
+
+.menu {
+  display: flex;
+  width: 0;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  opacity: 0;
+  right: 0;
+}
+
+.menu-option {
+  margin: 0 20px;
+  font-size: calc(12px + 0.35vw);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#txt-w {
+  color: var(--white);
+}
+
+#txt-o {
+  color: var(--org);
+}
