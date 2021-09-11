@@ -16,17 +16,17 @@ const Home = () => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                <div className="section" data-anchor="p1">
+                <div className="section" data-anchor="home">
                   <Load />
                   <Intro />
                 </div>
-                <div className="section" data-anchor="p2">
+                <div className="section" data-anchor="about">
                   <p>Section 2</p>
                 </div>
-                <div className="section" data-anchor="p3">
+                <div className="section" data-anchor="project">
                   <p>Section 3</p>
                 </div>
-                <div className="section" data-anchor="p4">
+                <div className="section" data-anchor="contact">
                   <p>Section 4</p>
                 </div>
               </ReactFullpage.Wrapper>

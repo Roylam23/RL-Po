@@ -150,16 +150,16 @@ const Nav = () => {
         />
       </svg>
       <div className="menu">
-        <a href="#p1">
+        <a href="#home">
           <div className="menu-option m1">Home</div>
         </a>
-        <a href="#p2">
+        <a href="#about">
           <div className="menu-option m2">About</div>
         </a>
-        <a href="#p3">
+        <a href="#project">
           <div className="menu-option m3">Recent Project</div>
         </a>
-        <a href="#p4">
+        <a href="#contact">
           <div className="menu-option m4">Contact</div>
         </a>
       </div>

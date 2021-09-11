@@ -44,7 +44,7 @@ const Intro = () => {
           <div className="main-l-con">
             <span className="hi">Hi, I'm</span>
             <span className="name">Roy Lam</span>
-            <span className="title">Frontend Developer</span>
+            <span className="title">Frontend Designer & Developer</span>
             <button className="btn-work">Let Work Together</button>
           </div>
           <div className="main-r-con">
