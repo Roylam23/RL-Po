@@ -1,6 +1,27 @@
 import { gsap } from "gsap";
 
 const Open = () => {
+  console.log(window.screen.width);
+  if (window.screen.width <= 768) {
+    gsap.to(".menu", 0.65, {
+      ease: "Power1.easeOut",
+      width: "auto",
+      y: 0,
+    });
+    var de = 0.5;
+    document.querySelectorAll(".menu-option").forEach((e) => {
+      gsap.fromTo(e, .8, { opacity: 0, x: 30 }, { opacity: 1, x: 0 }).delay(de);
+      de += .4;
+    });
+  } else {
+    gsap.to(".menu", -1, { y: 0 });
+    gsap.to(".menu", 0.65, {
+      ease: "Power1.easeOut",
+      width: "auto",
+      opacity: "1",
+      right: 65,
+    });
+  }
   gsap.to(".option", 0.3, {
     ease: "Power1.easeOut",
     rotation: "+=180",
@@ -13,16 +34,29 @@ const Open = () => {
     opacity: 1,
     display: "block",
     delay: 0.25,
-  });
-  gsap.to(".menu", 0.65, {
-    ease: "Power1.easeOut",
-    width: "auto",
-    opacity: "1",
-    right: 65,
   });
 };
 
 const Close = () => {
+  if (window.screen.width <= 768) {
+    gsap.to(".menu", 0.8, {
+      ease: "Power1.easeOut",
+      width: "auto",
+      y: "-100%",
+    }).delay(1);
+    var de = .8;
+    document.querySelectorAll(".menu-option").forEach((e) => {
+      gsap.fromTo(e, .35, { opacity: 1, x: 0 }, { opacity: 0, x: 30 }).delay(de);
+      de -= .2;
+    });
+  } else {
+    gsap.to(".menu", 0.65, {
+      ease: "Power1.easeOut",
+      width: "auto",
+      opacity: "0",
+      right: 0,
+    });
+  }
   gsap.to(".option-c", 0.3, {
     ease: "Power1.easeOut",
     rotation: "-=180",
@@ -36,17 +70,17 @@ const Close = () => {
     display: "block",
     delay: 0.25,
   });
-  gsap.to(".menu", 0.5, { width: 0, opacity: "0", right: 0 });
 };
 
 const Nav = () => {
   return (
     <nav className="nav">
       <svg
-        width="calc(50px + 1.3vw)"
+        width="calc(40px + 1.5vw)"
         viewBox="0 0 100 62"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="icon"
       >
         <path
           d="M29.0816 54.0262V49.035C29.0816 45.0595 32.3044 41.8367 36.2799 41.8367C40.2555 41.8367 43.4783 45.0595 43.4783 49.035V54.0262C43.4783 58.0017 40.2555 61.2245 36.2799 61.2245C32.3044 61.2245 29.0816 58.0017 29.0816 54.0262Z"
@@ -68,16 +102,16 @@ const Nav = () => {
         />
       </svg>
       <div className="menu">
-        <div className="menu-option">Home</div>
-        <div className="menu-option">About</div>
-        <div className="menu-option">Recent Project</div>
-        <div className="menu-option">Contact</div>
+        <div className="menu-option m1">Home</div>
+        <div className="menu-option m2">About</div>
+        <div className="menu-option m3">Recent Project</div>
+        <div className="menu-option m4">Contact</div>
       </div>
       {/* Option Menu Button */}
       <div className="btn-con">
         <svg
           className="option-c"
-          width="calc(25px + 0.5vw)"
+          width="calc(20px + 0.5vw)"
           height="36"
           viewBox="0 0 36 36"
           fill="none"
@@ -91,7 +125,7 @@ const Nav = () => {
         </svg>
         <svg
           className="option"
-          width="calc(25px + 0.5vw)"
+          width="calc(20px + 0.5vw)"
           viewBox="0 0 35 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

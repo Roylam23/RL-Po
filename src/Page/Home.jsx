@@ -1,13 +1,17 @@
 import Nav from "./Component/Nav";
-import Code from './Component/Code'
+import Intro from './Component/Intro'
+import Load from './Component/Load'
+import Source from './Component/Source'
 
 
 const Home = () => {
 
   return (
     <>
+      <Load/>
       <Nav />
-      <Code />
+      <Source/>
+      <Intro />
     </>
   );
 };
