@@ -2,8 +2,8 @@ import {gsap} from 'gsap'
 import { useEffect } from 'react';
 const Load = () => {
   useEffect(() =>{
-    gsap.fromTo(".load-icon",1,{opacity:.5},{opacity:1}).repeat(-1).yoyo(true).play();
-    gsap.to(".load",1,{display:'none',opacity:0}).delay(2.5)
+    gsap.fromTo(".load-icon",1,{opacity:.25},{opacity:1}).repeat(-1).yoyo(true).play();
+    gsap.to(".load",1,{display:'none',opacity:0,transform:'scale(.5)'}).delay(2.5)
   })
   return (
     <div className="load">

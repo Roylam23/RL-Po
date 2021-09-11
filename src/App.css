@@ -5,17 +5,30 @@
   --padding-top: 35px;
   --intro-fs: calc(20px + 2.5vw);
   --bo-size: calc(10px + 22vw);
-  --intro-size: calc(5px + 3.8vw);
+  --intro-size: calc(5px + 3.5vw);
+  --main-col: #0F0F0F;
+  --page-height: calc(100% / 4);
+  --padding: 60px;
 }
 
+#fullpage {
+  padding: 0 var(--padding);
+}
+
+/* .fp-tableCell {
+  vertical-align: top !important;
+} */
+
 .nav {
-  height: 100px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: calc(10px + 1.5vh) 0;
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 400;
+  padding: 35px var(--padding);
+  box-sizing: border-box;
 }
 
 .icon {
@@ -25,6 +38,9 @@
 .btn-con {
   position: relative;
   height: 36px;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .option {
@@ -46,13 +62,23 @@
 
 .menu {
   display: flex;
-  width: 0;
+  width: auto;
   overflow: hidden;
   flex-wrap: nowrap;
-  opacity: 1;
-  right: 0;
+  opacity: 0;
+  right: 30px;
   position: absolute;
-  transform: translateY(-100%)
+  transform: translateY(-120%);
+  background: transparent;
+}
+
+.menu>a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu-option:hover {
+  font-weight: 600;
 }
 
 .menu-option {
@@ -64,8 +90,8 @@
 
 .load {
   width: 100%;
-  height: 100%;
-  background: #161616;
+  height: var(--page-height);
+  background: var(--main-col);
   z-index: 250;
   position: fixed;
   display: flex;
@@ -86,7 +112,7 @@
 /* Intro */
 .main-outer {
   position: fixed;
-  height: 100%;
+  height: calc(100% / 4);
   width: 100%;
   top: 0;
   left: 0;
@@ -96,9 +122,8 @@
 }
 
 .main-con {
-  padding: 0 60px;
   padding-top: 30px;
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -128,22 +153,20 @@
 .name {
   color: #467AFF;
   font-size: var(--intro-size);
-  font-weight: 600;
 }
 
 .title {
   font-size: var(--intro-size);
-  font-weight: 600;
 }
 
 .btn-work {
-  border: 5px solid #fff;
-  padding: 20px 30px;
+  border: 3.5px solid #fff;
+  padding: 15px 30px;
   border-radius: 10px;
-  background: transparent;
+  background: var(--main-col);
   color: #fff;
-  font-size: calc(12px + 0.5vw);
-  margin-top: 3.5rem;
+  font-size: calc(12px + .15vw);
+  margin-top: 35px;
   cursor: pointer;
   transition: background .5s;
 }
@@ -161,11 +184,10 @@
   align-items: center;
   border-radius: 50%;
   border: 5px solid #fff;
-  transform:rotate(40deg);
 }
 
 .bo {
-  width: 100%;
+  width: 130%;
 }
 
 .icon-scroll {
@@ -187,8 +209,10 @@
 
 /* Source */
 .source-con {
+  margin-bottom: 25px;
   position: fixed;
-  bottom: 35px;
+  bottom: 5px;
+  left: var(--padding);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -202,37 +226,41 @@
   transition: opacity .3s;
 }
 
-.sor>svg{
-  color:#7a7a7a;
+.sor>svg {
+  color: #7a7a7a;
   transition: color .3s;
 }
 
 
-.sor:hover > svg{
-  color:white;
+.sor:hover>svg {
+  color: white;
 }
 
 /* Mobile */
 @media only screen and (max-width: 768px) {
-  body {
-    padding: 0 40px;
+  #fullpage {
+    padding: 0 35px;
+  }
+
+  .source-con {
+    bottom: 0;
   }
 
   .nav {
-    height: 80px;
+    padding: 25px var(--padding);
   }
 
   .menu {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #161616;
     top: 0;
     left: 0;
     flex-direction: column;
     justify-content: center;
     z-index: 300;
-    /* transform: translateY(-100%);  */
+    padding: 0 var(--padding);
+    background: var(--main-col);
   }
 
   .menu-option {
@@ -241,21 +269,11 @@
     font-size: calc(18px + 0.35vw);
   }
 
-  .menu-option:hover .menu-option::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background: #fff;
-  }
-
   .main-con {
     flex-direction: column;
     margin: 0;
     width: 100%;
-    padding-top: 0;
+    padding: 0 60px;
   }
 
   .main-r-con {
@@ -279,6 +297,7 @@
   :root {
     --bo-size: 150px;
     --intro-size: 25px;
+    --padding: 35px;
   }
 }
 
@@ -287,6 +306,7 @@
 @media only screen and (min-width: 1300px) {
   .main-con {
     max-width: 1650px;
+    width: 65%;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;

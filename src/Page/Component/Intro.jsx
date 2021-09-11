@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import bo from "../img/bo.jpg";
+import bo from "../img/icon.jpg";
 const Intro = () => {
-  var base = 2.5;
+  var base = 3;
   useEffect(() => {
     gsap
       .fromTo(".nav", 1, { opacity: 0, y: -100 }, { opacity: 1, y: 0 })
@@ -45,7 +45,7 @@ const Intro = () => {
             <span className="hi">Hi, I'm</span>
             <span className="name">Roy Lam</span>
             <span className="title">Frontend Developer</span>
-            <button className="btn-work">Let work together</button>
+            <button className="btn-work">Let Work Together</button>
           </div>
           <div className="main-r-con">
             <div className="bo-con">

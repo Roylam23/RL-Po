@@ -7,19 +7,59 @@ const Open = () => {
       ease: "Power1.easeOut",
       width: "auto",
       y: 0,
+      opacity: 1,
     });
     var de = 0.5;
     document.querySelectorAll(".menu-option").forEach((e) => {
-      gsap.fromTo(e, .8, { opacity: 0, x: 30 }, { opacity: 1, x: 0 }).delay(de);
-      de += .4;
+      gsap.to(e, -1, { opacity: 0 });
+      gsap
+        .fromTo(e, 0.8, { opacity: 0, x: 30 }, { opacity: 1, x: 0 })
+        .delay(de);
+      de += 0.4;
+      e.addEventListener("click", () => {
+        if (window.screen.width <= 768) {
+          gsap
+            .to(".menu", 0.8, {
+              ease: "Power1.easeOut",
+              width: "auto",
+              opacity: "0",
+              y: "-100%",
+            })
+            .delay(1);
+          de = 0.8;
+          document.querySelectorAll(".menu-option").forEach((e) => {
+            gsap
+              .fromTo(e, 0.35, { opacity: 1, x: 0 }, { opacity: 0, x: 30 })
+              .delay(de);
+            de -= 0.2;
+          });
+          document.querySelectorAll(".menu-option").forEach((e) => {
+            gsap.to(e, -1, { opacity: 1, x: 30 }).delay(2);
+          });
+          gsap.to(".option-c", 0.3, {
+            ease: "Power1.easeOut",
+            rotation: "-=180",
+            opacity: 0,
+            display: "none",
+          });
+          gsap.to(".option", 0.3, {
+            ease: "Power1.easeOut",
+            rotation: "-=180",
+            opacity: 1,
+            display: "block",
+            delay: 0.25,
+          });
+        }
+      });
     });
   } else {
-    gsap.to(".menu", -1, { y: 0 });
+    gsap.to(".menu-option", -1, { x: 0 });
+    gsap.to(".menu", -1, { y: 0 })
     gsap.to(".menu", 0.65, {
       ease: "Power1.easeOut",
       width: "auto",
       opacity: "1",
-      right: 65,
+      right: 105,
     });
   }
   gsap.to(".option", 0.3, {
@@ -39,22 +79,30 @@ const Open = () => {
 
 const Close = () => {
   if (window.screen.width <= 768) {
-    gsap.to(".menu", 0.8, {
-      ease: "Power1.easeOut",
-      width: "auto",
-      y: "-100%",
-    }).delay(1);
-    var de = .8;
+    gsap
+      .to(".menu", 0.8, {
+        ease: "Power1.easeOut",
+        width: "auto",
+        opacity: "0",
+        y: "-100%",
+      })
+      .delay(1);
+    var de = 0.8;
     document.querySelectorAll(".menu-option").forEach((e) => {
-      gsap.fromTo(e, .35, { opacity: 1, x: 0 }, { opacity: 0, x: 30 }).delay(de);
-      de -= .2;
+      gsap
+        .fromTo(e, 0.35, { opacity: 1, x: 0 }, { opacity: 0, x: 30 })
+        .delay(de);
+      de -= 0.2;
+    });
+    document.querySelectorAll(".menu-option").forEach((e) => {
+      gsap.to(e, -1, { opacity: 1, x: 30 }).delay(2);
     });
   } else {
     gsap.to(".menu", 0.65, {
       ease: "Power1.easeOut",
       width: "auto",
       opacity: "0",
-      right: 0,
+      right: 30,
     });
   }
   gsap.to(".option-c", 0.3, {
@@ -102,10 +150,18 @@ const Nav = () => {
         />
       </svg>
       <div className="menu">
-        <div className="menu-option m1">Home</div>
-        <div className="menu-option m2">About</div>
-        <div className="menu-option m3">Recent Project</div>
-        <div className="menu-option m4">Contact</div>
+        <a href="#p1">
+          <div className="menu-option m1">Home</div>
+        </a>
+        <a href="#p2">
+          <div className="menu-option m2">About</div>
+        </a>
+        <a href="#p3">
+          <div className="menu-option m3">Recent Project</div>
+        </a>
+        <a href="#p4">
+          <div className="menu-option m4">Contact</div>
+        </a>
       </div>
       {/* Option Menu Button */}
       <div className="btn-con">
@@ -126,7 +182,7 @@ const Nav = () => {
         <svg
           className="option"
           width="calc(20px + 0.5vw)"
-          viewBox="0 0 35 30"
+          viewBox="0 0 36 36"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           onClick={Open}
