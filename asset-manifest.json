@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/RL-Po/static/css/main.9804a252.chunk.css",
-    "main.js": "/RL-Po/static/js/main.98ec2f59.chunk.js",
-    "main.js.map": "/RL-Po/static/js/main.98ec2f59.chunk.js.map",
+    "main.css": "/RL-Po/static/css/main.8c70763c.chunk.css",
+    "main.js": "/RL-Po/static/js/main.ae7a64c6.chunk.js",
+    "main.js.map": "/RL-Po/static/js/main.ae7a64c6.chunk.js.map",
     "runtime-main.js": "/RL-Po/static/js/runtime-main.3b9d93fb.js",
     "runtime-main.js.map": "/RL-Po/static/js/runtime-main.3b9d93fb.js.map",
     "static/css/2.679831fc.chunk.css": "/RL-Po/static/css/2.679831fc.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.216a3cd8.chunk.js.map": "/RL-Po/static/js/3.216a3cd8.chunk.js.map",
     "index.html": "/RL-Po/index.html",
     "static/css/2.679831fc.chunk.css.map": "/RL-Po/static/css/2.679831fc.chunk.css.map",
-    "static/css/main.9804a252.chunk.css.map": "/RL-Po/static/css/main.9804a252.chunk.css.map",
+    "static/css/main.8c70763c.chunk.css.map": "/RL-Po/static/css/main.8c70763c.chunk.css.map",
     "static/js/2.6e21894e.chunk.js.LICENSE.txt": "/RL-Po/static/js/2.6e21894e.chunk.js.LICENSE.txt",
     "static/media/icon.55299ae8.jpg": "/RL-Po/static/media/icon.55299ae8.jpg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.3b9d93fb.js",
     "static/css/2.679831fc.chunk.css",
     "static/js/2.6e21894e.chunk.js",
-    "static/css/main.9804a252.chunk.css",
-    "static/js/main.98ec2f59.chunk.js"
+    "static/css/main.8c70763c.chunk.css",
+    "static/js/main.ae7a64c6.chunk.js"
   ]
 }
