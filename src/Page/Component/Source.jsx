@@ -1,21 +1,21 @@
-import { gsap } from "gsap";
 import { useEffect } from "react";
 import { Icon } from "@iconify/react";
+import anime from "animejs/lib/anime.es.js";
 const Source = () => {
   useEffect(() => {
-    var d = 6;
-    document.querySelectorAll(".sor").forEach((sor) => {
-      gsap
-        .fromTo(sor, 0.6, { opacity: 0, x: -20 }, { opacity: 1, x: 0 })
-        .delay(d);
-      d += 0.5;
+    anime({
+      easing: "easeInOutSine",
+      targets: ".sor",
+      opacity: [0, 1],
+      translateX: ["-20px", 0],
+      delay: anime.stagger(500, { start: 5500 }),
     });
   });
   return (
     <div className="source-con">
       <span
         className="sor"
-        onClick={() => window.open('https://github.com/Roylam23')}
+        onClick={() => window.open("https://github.com/Roylam23")}
       >
         <Icon icon="akar-icons:github-fill" width="calc(16px + 0.35vw)" />
       </span>

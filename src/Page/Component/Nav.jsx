@@ -1,123 +1,138 @@
 import { gsap } from "gsap";
+import anime from "animejs/lib/anime.es.js";
+
+const BtnClose = () => {
+  anime({
+    easing: "easeOutQuad",
+    targets: ".option",
+    opacity: 0,
+    rotate: "180deg",
+    duration: 350,
+    complete: () => {
+      document.querySelector(".option").style.display = "none";
+    },
+  });
+  anime({
+    easing: "easeOutQuad",
+    targets: ".option-c",
+    opacity: [0,1],
+    rotate: "180deg",
+    delay: 300,
+    duration: 350,
+    begin: () => {
+      document.querySelector(".option-c").style.display = "block";
+    },
+  });
+};
+
+const BtnOpen = () => {
+  anime({
+    easing: "easeOutQuad",
+    targets: ".option",
+    opacity: 1,
+    rotate: "-180deg",
+    delay: 300,
+    duration: 350,
+    begin: () => {
+      document.querySelector(".option").style.display = "block";
+    },
+  });
+  anime({
+    easing: "easeOutQuad",
+    targets: ".option-c",
+    opacity: 0,
+    rotate: "-180deg",
+    duration: 350,
+    complete: () => {
+      document.querySelector(".option-c").style.display = "none";
+    },
+  });
+};
+
+const MenuClose = () => {
+  var menu = anime.timeline({
+    easing: "easeOutQuad",
+  });
+  menu
+    .add({
+      targets: ".menu-option",
+      duration: 425,
+      opacity: 0,
+      translateX: "50px",
+      delay: anime.stagger(150, { direction: "reverse" }),
+    })
+    .add({
+      targets: ".menu",
+      duration: 1000,
+      translateY: "-100%",
+      opacity: 0,
+    });
+};
 
 const Open = () => {
   console.log(window.screen.width);
   if (window.screen.width <= 768) {
-    gsap.to(".menu", 0.65, {
-      ease: "Power1.easeOut",
-      width: "auto",
-      y: 0,
+    var menu = anime.timeline({
+      easing: "easeOutQuad",
+    });
+    menu.add({
+      targets: ".menu",
+      duration: 650,
+      translateY: 0,
       opacity: 1,
     });
-    var de = 0.5;
+    menu.add({
+      targets: ".menu-option",
+      duration: 550,
+      opacity: [0, 1],
+      translateX: ["50px", 0],
+      delay: anime.stagger(250),
+    });
     document.querySelectorAll(".menu-option").forEach((e) => {
-      gsap.to(e, -1, { opacity: 0 });
-      gsap
-        .fromTo(e, 0.8, { opacity: 0, x: 30 }, { opacity: 1, x: 0 })
-        .delay(de);
-      de += 0.4;
       e.addEventListener("click", () => {
-        if (window.screen.width <= 768) {
-          gsap
-            .to(".menu", 0.8, {
-              ease: "Power1.easeOut",
-              width: "auto",
-              opacity: "0",
-              y: "-100%",
-            })
-            .delay(1);
-          de = 0.8;
-          document.querySelectorAll(".menu-option").forEach((e) => {
-            gsap
-              .fromTo(e, 0.35, { opacity: 1, x: 0 }, { opacity: 0, x: 30 })
-              .delay(de);
-            de -= 0.2;
-          });
-          document.querySelectorAll(".menu-option").forEach((e) => {
-            gsap.to(e, -1, { opacity: 1, x: 30 }).delay(2);
-          });
-          gsap.to(".option-c", 0.3, {
-            ease: "Power1.easeOut",
-            rotation: "-=180",
-            opacity: 0,
-            display: "none",
-          });
-          gsap.to(".option", 0.3, {
-            ease: "Power1.easeOut",
-            rotation: "-=180",
-            opacity: 1,
-            display: "block",
-            delay: 0.25,
-          });
-        }
+        BtnOpen();
+        MenuClose();
       });
     });
   } else {
-    gsap.to(".menu-option", -1, { x: 0 });
-    gsap.to(".menu", -1, { y: 0 })
-    gsap.to(".menu", 0.65, {
-      ease: "Power1.easeOut",
-      width: "auto",
-      opacity: "1",
-      right: 105,
+    menu = anime.timeline({
+      easing: "easeOutQuad",
     });
+    menu
+      .add({
+        targets: ".menu-option",
+        duration: 0,
+        translateX: 0,
+        opacity: 1,
+      })
+      .add({
+        targets: ".menu",
+        duration: 0,
+        translateY: 0,
+      })
+      .add({
+        targets: ".menu",
+        opacity: 1,
+        translateX: [0,"-85px"],
+        duration: 650,
+      });
   }
-  gsap.to(".option", 0.3, {
-    ease: "Power1.easeOut",
-    rotation: "+=180",
-    opacity: 0,
-    display: "none",
-  });
-  gsap.to(".option-c", 0.3, {
-    ease: "Power1.easeOut",
-    rotation: "+=180",
-    opacity: 1,
-    display: "block",
-    delay: 0.25,
-  });
+  BtnClose();
 };
 
 const Close = () => {
   if (window.screen.width <= 768) {
-    gsap
-      .to(".menu", 0.8, {
-        ease: "Power1.easeOut",
-        width: "auto",
-        opacity: "0",
-        y: "-100%",
-      })
-      .delay(1);
-    var de = 0.8;
-    document.querySelectorAll(".menu-option").forEach((e) => {
-      gsap
-        .fromTo(e, 0.35, { opacity: 1, x: 0 }, { opacity: 0, x: 30 })
-        .delay(de);
-      de -= 0.2;
-    });
-    document.querySelectorAll(".menu-option").forEach((e) => {
-      gsap.to(e, -1, { opacity: 1, x: 30 }).delay(2);
-    });
+    MenuClose();
   } else {
     gsap.to(".menu", 0.65, {
       ease: "Power1.easeOut",
       width: "auto",
+      translateX: 0,
       opacity: "0",
       right: 30,
     });
   }
-  gsap.to(".option-c", 0.3, {
-    ease: "Power1.easeOut",
-    rotation: "-=180",
-    opacity: 0,
-    display: "none",
-  });
-  gsap.to(".option", 0.3, {
-    ease: "Power1.easeOut",
-    rotation: "-=180",
-    opacity: 1,
-    display: "block",
-    delay: 0.25,
-  });
+  BtnOpen();
 };
 
 const Nav = () => {

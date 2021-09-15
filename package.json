@@ -1,5 +1,6 @@
 {
   "name": "rl-po",
+  "homepage": "https://Roylam23.github.io/RL-Po",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,6 +8,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "animejs": "^3.2.1",
     "fullpage.js": "^3.1.2",
     "gsap": "^3.7.1",
     "normalize.css": "^8.0.1",
@@ -16,6 +18,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@iconify/react": "^3.0.1"
+    "@iconify/react": "^3.0.1",
+    "gh-pages": "^3.2.3"
   }
 }

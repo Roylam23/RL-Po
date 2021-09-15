@@ -37,10 +37,12 @@
 
 .btn-con {
   position: relative;
-  height: 36px;
+  width:60px;
+  height: 60px;
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .option {
@@ -158,6 +160,7 @@
 .title {
   font-size: 25px;
   margin-top: calc(5px + .15vw);
+  margin-left:5px;
 }
 
 .btn-work {
@@ -168,6 +171,7 @@
   color: #fff;
   font-size: calc(12px + .15vw);
   margin-top: 35px;
+  margin-left:5px;
   cursor: pointer;
   transition: background .5s;
 }
@@ -229,12 +233,12 @@
 
 .sor>svg {
   color: #7a7a7a;
-  transition: color .3s;
+  transition: all .3s;
 }
-
 
 .sor:hover>svg {
   color: white;
+  transform: translateY(-5px);
 }
 
 /* Mobile */
@@ -311,8 +315,8 @@
 /* Big screen */
 @media only screen and (min-width: 1300px) {
   .main-con {
-    max-width: ~850px;
-    width: 55%;
+    max-width: 850px;
+    width: 60%;
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
